@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+package DiSyProto;
+
+message Directory {
+  message File {
+    string name = 1;
+    int64  date = 2;
+  }
+
+  repeated File files = 1;
+}
+
+message Synctime {
+  int64 time = 1;
+}
+
+message Dirlist {
+  message Directory {
+    string name = 1;
+    string privileges = 2;
+  }
+  repeated Directory dir = 1;
+}
+
+message Filelist {
+  message File {
+    string name = 1;
+  }
+  repeated File files = 1;
+}
+
+message Hashlist {
+  message FileHash {
+    string name = 1;
+    string hash = 2;
+    int64 date = 3;
+  }
+  repeated FileHash filehashes = 1;
+}
+
+message FileblockInfo {
+  string name = 1;
+  int64 number = 2;
+  string privileges = 5;
+}
+
+message Fileblock {
+  string name = 1;
+  bytes data = 3;
+}
